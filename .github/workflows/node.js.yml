@@ -29,3 +29,15 @@ jobs:
           yarn prepare-ci
           yarn start:ci &
           yarn cypress:run
+      - name: Pack results
+        if: always()
+        run: |
+          cd atcoder-problems-frontend
+          mkdir cypress_results
+          cp -r cypress/screenshots cypress_results
+          cp -r cypress/videos cypress_results
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress_results.${{ steps.date.outputs.date }}
+          path: atcoder-problems-frontend/cypress_results
