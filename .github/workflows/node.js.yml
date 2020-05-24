@@ -24,6 +24,7 @@ jobs:
       - run: sudo apt-get install libgconf-2-4
       - run: |
           cd atcoder-problems-frontend
+          yarn
           yarn build
           yarn prepare-ci
           yarn start:ci &
