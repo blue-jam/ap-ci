@@ -34,8 +34,8 @@ jobs:
         run: |
           cd atcoder-problems-frontend
           mkdir cypress_results
-          cp -r cypress/screenshots cypress_results
-          cp -r cypress/videos cypress_results
+          cp -rf cypress/screenshots cypress_results
+          cp -rf cypress/videos cypress_results
       - uses: actions/upload-artifact@v2
         if: always()
         with:
